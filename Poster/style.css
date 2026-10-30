@@ -1,0 +1,570 @@
+/* =========================
+   1. 기본 스타일: 색상과 글자 정보
+========================= */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --yellow: #ffdf00;
+  --red: #ef2d1c;
+  --ink: #080808;
+  --table-line: #4a4100;
+  --venue-mark-thickness: 1rem;
+  --portrait-mark-width: 3.5rem;
+  --outer-gap: 0.75rem;
+  --space-0-5: 0.125rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: "Pretendard", Arial, sans-serif;
+}
+
+.venue {
+  font-size: clamp(1rem, 5.2vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.venue-rule {
+  background: var(--red);
+  height: var(--venue-mark-thickness);
+}
+
+.venue-name {
+  margin: 0;
+}
+
+.venue-address {
+  margin-top: var(--space-1);
+  font-size: 0.72em;
+}
+
+.category {
+  color: var(--red);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.main-title {
+  margin: 0;
+  font-size: 15vw;
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+}
+
+.exhibition-title {
+  margin: 0;
+  background: var(--red);
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.description-kicker {
+  margin-bottom: var(--space-0-5);
+  font-weight: 700;
+}
+
+.description-text {
+  margin: 0;
+}
+
+.anniversary {
+  color: var(--red);
+  line-height: 0.82;
+}
+
+.anniversary-number {
+  font-size: clamp(3rem, 12vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+.anniversary-label {
+  margin-top: var(--space-1);
+  font-size: clamp(1.15rem, 2.4vw, 1.25rem);
+  font-weight: 900;
+}
+
+.info-table {
+  line-height: 1.2;
+  font-size: 1rem;
+}
+
+.info-table > div {
+  min-width: 0;
+  border-right: 1px solid var(--table-line);
+  border-bottom: 1px solid var(--table-line);
+}
+
+.info-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.info-label {
+  font-weight: 700;
+}
+
+.info-value {
+  font-weight: 500;
+}
+
+/* =========================
+   2. 레이아웃: 위치와 정렬
+========================= */
+
+.poster {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  background: var(--yellow);
+  align-content: start;
+  grid-template-areas:
+    "header"
+    "title"
+    "exhibition"
+    "anniversary"
+    "description"
+    "info";
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 49.35vw auto auto auto auto auto;
+  width: 100%;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: var(--outer-gap);
+}
+
+.portrait {
+  position: absolute;
+  z-index: 1;
+  top: var(--outer-gap);
+  left: var(--outer-gap);
+  right: var(--outer-gap);
+  display: grid;
+  grid-template-columns: var(--portrait-mark-width) 38% minmax(0, 1fr);
+  align-items: end;
+}
+
+.portrait-frame {
+  grid-column: 2;
+  width: 100%;
+  aspect-ratio: 77 / 100;
+}
+
+.portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  mix-blend-mode: multiply;
+}
+
+.portrait-side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 41%;
+}
+
+.venue,
+.category,
+.main-title,
+.exhibition-title,
+.description,
+.anniversary,
+.info-table {
+  z-index: 2;
+}
+
+.venue {
+  width: 100%;
+  text-align: right;
+}
+
+.venue-rule {
+  margin-bottom: var(--space-2);
+}
+
+.category {
+  width: 100%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.main-title {
+  grid-area: title;
+  margin-top: var(--space-4);
+  text-align: center;
+}
+
+.exhibition-title {
+  grid-area: exhibition;
+  margin-top: var(--space-5);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+.anniversary {
+  grid-area: anniversary;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-10);
+}
+
+.description {
+  grid-area: description;
+  max-width: 29rem;
+  margin-top: var(--space-2);
+  padding-bottom: var(--space-1);
+}
+
+.info-table {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--space-12);
+  border-top: 1px solid var(--table-line);
+  border-left: 1px solid var(--table-line);
+}
+
+.info-table > .info-label {
+  padding: var(--space-1) var(--space-2);
+  text-align: center;
+}
+
+.info-table > .info-value {
+  padding: var(--space-2);
+}
+
+.info-cell .info-label,
+.info-cell .info-value {
+  padding: 0;
+}
+
+.info-cell {
+  min-height: 3.6rem;
+  padding: var(--space-2);
+}
+
+.red-block {
+  position: absolute;
+  z-index: 0;
+  background: var(--red);
+}
+
+.red-block-left {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  width: 100%;
+}
+
+.red-block-right {
+  z-index: 3;
+  position: static;
+  align-self: flex-end;
+  flex: 1 1 0;
+  min-height: 0;
+  width: var(--venue-mark-thickness);
+  visibility: hidden;
+}
+
+/* =========================
+   3. 태블릿
+========================= */
+
+@media (min-width: 700px) {
+  .poster {
+    grid-template-areas:
+      "header header"
+      "title title"
+      "exhibition exhibition"
+      "anniversary anniversary"
+      "description info";
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    column-gap: 2vw;
+    grid-template-rows: 44vw auto auto auto auto;
+    min-height: 0;
+  }
+
+  .portrait {
+    grid-template-columns: var(--portrait-mark-width) 31% minmax(0, 1fr);
+  }
+
+  .portrait-side {
+    width: 40%;
+  }
+
+  .category {
+    font-size: 1.2rem;
+  }
+
+  .main-title {
+    margin-top: 0.5vw;
+  }
+
+  .exhibition-title {
+    margin-top: 1.5vw;
+    padding-block: 1.2vw;
+    font-size: 1.8rem;
+  }
+
+  .anniversary {
+    margin-top: 7vw;
+  }
+
+  .anniversary-number {
+    font-size: 10vw;
+  }
+
+  .anniversary-label {
+    margin-top: 0.8vw;
+  }
+
+  .description {
+    max-width: none;
+    margin-top: 13vw;
+    font-size: 1rem;
+  }
+
+  .description-kicker {
+    margin-bottom: 0.4vw;
+  }
+
+  .info-table {
+    align-self: start;
+    margin-top: 12.5vw;
+  }
+
+  .info-table > .info-label {
+    padding: var(--space-2);
+  }
+
+  .info-table > .info-value,
+  .info-cell {
+    padding: var(--space-2);
+    line-height: 1.35;
+  }
+
+  .info-cell {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    min-height: 0;
+  }
+
+  .red-block-right {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 649px) {
+  .info-table {
+    grid-template-rows: repeat(3, minmax(3.6rem, 1fr));
+  }
+
+  .info-cell {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 0.1em;
+  }
+}
+
+/* =========================
+   4. 데스크톱
+========================= */
+
+@media (min-width: 850px) {
+  .poster {
+    display: block;
+    width: 100%;
+    height: max(56.25rem, min(100vh, 62.5vw));
+    overflow: hidden;
+  }
+
+  .portrait {
+    grid-template-columns: var(--portrait-mark-width) 16rem minmax(0, 1fr);
+  }
+
+  .venue {
+    font-size: 1.8rem;
+  }
+
+  .main-title {
+    position: absolute;
+    top: 23.625rem;
+    right: 0;
+    left: 0;
+    margin: 0;
+    font-size: clamp(9.6rem, 15vw, 13rem);
+    text-align: center;
+  }
+
+  .exhibition-title {
+    position: absolute;
+    top: 36rem;
+    left: 46%;
+    right: var(--outer-gap);
+    width: auto;
+    margin: 0;
+    padding: var(--space-3) var(--space-2);
+    text-align: center;
+  }
+
+  .anniversary {
+    position: absolute;
+    bottom: calc(100% - 54.5625rem);
+    left: 46%;
+    width: 18%;
+    margin: 0;
+  }
+
+  .anniversary-number {
+    font-size: 6rem;
+  }
+
+  .anniversary-label {
+    margin-top: var(--space-2);
+  }
+
+  .description {
+    position: absolute;
+    top: 36rem;
+    left: var(--outer-gap);
+    width: 40%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem;
+  }
+
+  .description-kicker {
+    margin-bottom: var(--space-1);
+  }
+
+  .info-table {
+    position: absolute;
+    right: var(--outer-gap);
+    top: 44.4375rem;
+    width: calc(34% - var(--outer-gap));
+    height: 10.125rem;
+    margin: 0;
+    grid-template-columns: 28% minmax(0, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+  }
+
+  .info-table > .info-label,
+  .info-table > .info-value {
+    display: flex;
+    align-items: center;
+    padding: var(--space-1);
+  }
+
+  .info-table > .info-label {
+    justify-content: center;
+  }
+
+  .info-table > .info-label:nth-child(1) {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+  }
+
+  .info-table > .info-label:nth-child(2) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .info-table > .info-value:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .info-table > .info-value:nth-child(4) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .info-cell {
+    flex-wrap: wrap;
+    align-content: center;
+    gap: var(--space-1);
+    padding: var(--space-1);
+  }
+
+  .info-cell:nth-child(5) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .info-cell:nth-child(6) {
+    grid-column: 2;
+    grid-row: 4;
+  }
+}
+
+/* =========================
+   5. 작은 화면
+========================= */
+
+@media (max-width: 360px) {
+  .info-table > .info-label,
+  .info-value,
+  .info-cell {
+    padding-inline: var(--space-2);
+  }
+}
+
+@media (max-width: 420px) {
+  .venue {
+    font-size: 1rem;
+  }
+
+  .main-title {
+    font-size: 14.5vw;
+  }
+
+  .exhibition-title {
+    font-size: clamp(1.1rem, 6vw, 1.4rem);
+  }
+}
+
+@media (max-width: 699px) {
+  .category {
+    white-space: normal;
+  }
+}
