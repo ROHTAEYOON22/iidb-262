@@ -105,7 +105,6 @@ body {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
 }
 
 .bbox1,
@@ -157,10 +156,12 @@ body {
 .anniversary,
 .d,
 .table {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-.r2 {
+.bbox1 > .r2 {
+  position: relative;
+  width: 100%;
   margin-bottom: var(--space-2);
 }
 
@@ -173,7 +174,7 @@ body {
 }
 
 .geb {
-  margin-top: var(--space-1);
+  margin-top: 0;
 }
 
 .table > :is(.e, .ge, .mi, .n) {
@@ -217,74 +218,75 @@ body {
   align-self: flex-end;
   flex: 1 1 0;
   visibility: hidden;
+  min-height: 0;
+  width: var(--venue-mark-thickness);
 }
 
 /* 크기와 글자 */
 body {
   font-family: "Pretendard", Arial, sans-serif;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .bbox1 {
-  font-weight: 800;
-  line-height: 1.05;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.jo {
+  font-size: 3vw;
+}
+
+.ge {
+  font-size: 16px;
+}
+
+.a {
+  font-size: 4.44vw;
 }
 
 .r2 {
   height: var(--venue-mark-thickness);
 }
 
-.jo {
-  font-size: 0.72em;
-}
-
 .g {
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .k {
-  font-size: 14.5vw;
-  font-weight: 900;
-  line-height: 0.82;
-  letter-spacing: -0.075em;
+  font-size: min(12vw, 173px);
+  font-weight: 700;
+  margin-top: 2vw;
   white-space: nowrap;
 }
 
 .j {
-  font-size: clamp(18px, 6vw, 22px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 2vw;
   white-space: nowrap;
 }
 
 .d {
   max-width: 464px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.28;
 }
 
 .ka {
   font-weight: 700;
 }
 
-.anniversary {
-  line-height: 0.82;
-}
-
 [class~="6"] {
-  font-size: clamp(48px, 12vw, 56px);
-  font-weight: 900;
-  letter-spacing: -0.07em;
+  font-size: 50px;
+  font-weight: 700;
 }
 
 .geb {
-  font-size: clamp(18px, 2.4vw, 20px);
-  font-weight: 900;
-}
-
-.table {
-  line-height: 1.2;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .table > div {
@@ -331,15 +333,27 @@ body {
   width: 100%;
 }
 
-.r3 {
-  min-height: 0;
-  width: var(--venue-mark-thickness);
-}
-
 /* =========================
    태블릿: 700px 이상
 ========================= */
 @media (min-width: 700px) {
+  .bbox1 {
+    font-size: 30px;
+  }
+
+  .g,
+  .geb {
+    font-size: 20px;
+  }
+
+  .j {
+    font-size: 30px;
+  }
+
+  [class~="6"] {
+    font-size: 95px;
+  }
+
   /* 색상: 공통 색상 유지 */
 
   /* 위치와 배치 */
@@ -360,15 +374,6 @@ body {
     grid-template-columns: var(--portrait-mark-width) 31% minmax(0, 1fr);
   }
 
-  .k,
-  .j {
-    margin-top: var(--space-5);
-  }
-
-  .geb {
-    margin-top: 0.8vw;
-  }
-
   .table {
     align-self: start;
     grid-template-rows: none;
@@ -377,7 +382,7 @@ body {
   .anniversary,
   .d,
   .table {
-    margin-top: 7vw;
+    margin-top: 20px;
   }
 
   .table > :is(.e, .ge, .mi, .n) {
@@ -404,46 +409,27 @@ body {
   }
 
   /* 크기와 글자 */
-  .bbox1 {
-    font-size: clamp(16px, 5.2vw, 22px);
-  }
-
-  .k {
-    font-size: 15vw;
-  }
-
   .bbox {
     width: 40%;
   }
 
   .g {
-    font-size: 19px;
     white-space: nowrap;
   }
 
   .j {
     padding-block: 1.2vw;
-    font-size: 29px;
-  }
-
-  [class~="6"] {
-    font-size: 10vw;
   }
 
   .d {
     max-width: none;
   }
-
-  .table > :is(.wo, .m, .f, [class~="5"]),
-  :is(.box1, .box2) {
-    line-height: 1.35;
-  }
 }
 
 /* =========================
-   데스크톱: 850px 이상
+   데스크톱: 855px 이상
 ========================= */
-@media (min-width: 850px) {
+@media (min-width: 855px) {
   /* 색상: 공통 색상 유지 */
 
   /* 위치와 배치 */
@@ -484,10 +470,6 @@ body {
     grid-row: 16 / span 4;
     align-self: center;
     margin: 0;
-  }
-
-  .geb {
-    margin-top: var(--space-2);
   }
 
   .d {
@@ -546,7 +528,8 @@ body {
     grid-row: 3;
   }
 
-  :is(.box1, .box2):nth-child(5), :is(.box1, .box2):nth-child(6) {
+  :is(.box1, .box2):nth-child(5),
+  :is(.box1, .box2):nth-child(6) {
     align-content: center;
     gap: var(--space-1);
     padding: var(--space-1);
@@ -566,21 +549,5 @@ body {
   .p {
     width: 100%;
     height: 900px;
-  }
-
-  .bbox1 {
-    font-size: 29px;
-  }
-
-  .k {
-    font-size: clamp(64px, 12vw, 173px);
-  }
-
-  [class~="6"] {
-    font-size: 96px;
-  }
-
-  .d {
-    font-size: 18px;
   }
 }
