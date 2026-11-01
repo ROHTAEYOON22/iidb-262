@@ -9,12 +9,9 @@
   --venue-mark-thickness: 16px;
   --portrait-mark-width: 56px;
   --outer-gap: 12px;
-  --space-0-5: 2px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
 }
 
 * {
@@ -27,8 +24,12 @@
 
 /* 색상 */
 body {
+  margin: 0;
   background: var(--yellow);
   color: var(--ink);
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .r1,
@@ -42,19 +43,12 @@ body {
   color: var(--red);
 }
 
-.j {
-  background: var(--red);
-}
-
-.p {
-  background: var(--yellow);
-}
-
 .table > div {
   border-right: 1px solid var(--table-line);
   border-bottom: 1px solid var(--table-line);
   display: flex;
   align-items: center;
+  min-width: 0;
 }
 
 .table {
@@ -63,15 +57,14 @@ body {
 }
 
 /* 위치와 배치 */
-body {
-  margin: 0;
-}
-
 .p {
   position: relative;
   isolation: isolate;
   display: grid;
   align-content: start;
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--outer-gap);
   grid-template-areas:
     "header"
     "title"
@@ -81,8 +74,6 @@ body {
     "info";
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: calc(49.35vw - var(--space-2)) auto auto auto auto auto;
-  margin-inline: auto;
-  padding: var(--outer-gap);
 }
 
 .p1 {
@@ -98,6 +89,7 @@ body {
 
 .p1 > .i {
   grid-column: 2;
+  aspect-ratio: 77 / 100;
 }
 
 .bbox {
@@ -105,6 +97,7 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
+  width: 41%;
   display: flex;
   flex-direction: column;
 }
@@ -126,15 +119,22 @@ body {
 
 .k {
   grid-area: title;
-  margin-top: var(--space-4);
+  margin-top: 2vw;
+  font-size: min(12vw, 173px);
+  font-weight: 700;
   text-align: center;
+  white-space: nowrap;
 }
 
 .j {
+  background: var(--red);
   grid-area: exhibition;
-  margin-top: var(--space-5);
+  margin-top: 2vw;
   padding: var(--space-2);
+  font-size: 20px;
+  font-weight: 700;
   text-align: center;
+  white-space: nowrap;
 }
 
 .anniversary {
@@ -145,7 +145,9 @@ body {
 
 .d {
   grid-area: description;
+  max-width: 464px;
   padding-bottom: var(--space-1);
+  font-weight: 500;
 }
 
 .table {
@@ -171,21 +173,16 @@ body {
   margin-top: var(--space-1);
 }
 
-.geb {
-  margin-top: 0;
-}
-
-.table > :is(.e, .ge, .mi, .n) {
+.table > :is(.e, .ge) {
   padding: var(--space-1) var(--space-2);
   text-align: center;
 }
 
-.table > :is(.wo, .m, .f, [class~="5"]) {
+.table > :is(.wo, .m) {
   padding: var(--space-2);
 }
 
-:is(.box1, .box2) :is(.e, .ge, .mi, .n),
-:is(.box1, .box2) :is(.wo, .m, .f, [class~="5"]) {
+:is(.box1, .box2) :is(.mi, .n, .f, [class~="5"]) {
   padding: 0;
 }
 
@@ -198,8 +195,7 @@ body {
   gap: 0.1em;
 }
 
-:is(.r1, .r2, .r3) {
-  position: absolute;
+:is(.r1, .r2) {
   z-index: 0;
 }
 
@@ -212,7 +208,6 @@ body {
 
 .r3 {
   z-index: 3;
-  position: static;
   align-self: flex-end;
   flex: 1 1 0;
   visibility: hidden;
@@ -221,12 +216,6 @@ body {
 }
 
 /* 크기와 글자 */
-body {
-  font-family: "Pretendard", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-}
-
 .bbox1 {
   font-size: 17px;
   font-weight: 700;
@@ -234,10 +223,6 @@ body {
 
 .jo {
   font-size: 3vw;
-}
-
-.ge {
-  font-size: 16px;
 }
 
 .a {
@@ -251,26 +236,6 @@ body {
 .g {
   font-size: 14px;
   font-weight: 700;
-}
-
-.k {
-  font-size: min(12vw, 173px);
-  font-weight: 700;
-  margin-top: 2vw;
-  white-space: nowrap;
-}
-
-.j {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 2vw;
-  white-space: nowrap;
-}
-
-.d {
-  max-width: 464px;
-  font-size: 16px;
-  font-weight: 500;
 }
 
 .ka {
@@ -287,26 +252,12 @@ body {
   font-weight: 700;
 }
 
-.table > div {
-  min-width: 0;
-}
-
 :is(.e, .ge) {
   font-weight: 700;
 }
 
 :is(.mi, .n, .wo, .m, .f, [class~="5"]) {
   font-weight: 500;
-}
-
-.p {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.p1 > .i {
-  width: 100%;
-  aspect-ratio: 77 / 100;
 }
 
 .i {
@@ -316,19 +267,6 @@ body {
   object-fit: cover;
   object-position: center 32%;
   mix-blend-mode: multiply;
-}
-
-.bbox {
-  width: 41%;
-}
-
-.bbox1,
-.g {
-  width: 100%;
-}
-
-.r1 {
-  width: 100%;
 }
 
 /* =========================
@@ -351,8 +289,6 @@ body {
   [class~="6"] {
     font-size: 95px;
   }
-
-  /* 색상: 공통 색상 유지 */
 
   /* 위치와 배치 */
   .p {
@@ -377,18 +313,7 @@ body {
     grid-template-rows: none;
   }
 
-  .anniversary,
-  .d,
-  .table {
-    margin-top: 20px;
-  }
-
-  .table > :is(.e, .ge, .mi, .n) {
-    padding: var(--space-2);
-  }
-
-  .table > :is(.wo, .m, .f, [class~="5"]),
-  :is(.box1, .box2) {
+  .table > :is(.e, .ge, .wo, .m) {
     padding: var(--space-2);
   }
 
@@ -448,7 +373,6 @@ body {
     grid-row: 9 / span 4;
     align-self: center;
     margin: 0;
-    text-align: center;
   }
 
   .j {
@@ -456,7 +380,6 @@ body {
     grid-row: 13 / span 2;
     margin: 0;
     padding: var(--space-3) var(--space-2);
-    text-align: center;
   }
 
   .anniversary {
@@ -464,6 +387,7 @@ body {
     grid-row: 16 / span 4;
     align-self: center;
     margin: 0;
+    transform: translateY(-12px); /* 높이 보정용 */
   }
 
   .d {
@@ -487,33 +411,30 @@ body {
     align-self: start;
   }
 
-  .table > :is(.e, .ge, .mi, .n),
-  .table > :is(.wo, .m, .f, [class~="5"]) {
-    display: flex;
-    align-items: center;
+  .table > :is(.e, .ge, .wo, .m) {
     padding: var(--space-1);
   }
 
-  .table > :is(.e, .ge, .mi, .n) {
+  .table > :is(.e, .ge) {
     justify-content: center;
   }
 
-  .table > :is(.e, .ge, .mi, .n):nth-child(1) {
+  .table > :is(.e, .ge):nth-child(1) {
     grid-column: 1;
     grid-row: 3 / span 2;
   }
 
-  .table > :is(.e, .ge, .mi, .n):nth-child(2) {
+  .table > :is(.e, .ge):nth-child(2) {
     grid-column: 1;
     grid-row: 1 / span 2;
   }
 
-  .table > :is(.wo, .m, .f, [class~="5"]):nth-child(3) {
+  .table > :is(.wo, .m):nth-child(3) {
     grid-column: 2;
     grid-row: 1;
   }
 
-  .table > :is(.wo, .m, .f, [class~="5"]):nth-child(4) {
+  .table > :is(.wo, .m):nth-child(4) {
     grid-column: 2;
     grid-row: 3;
   }
@@ -537,7 +458,6 @@ body {
 
   /* 크기와 글자 */
   .p {
-    width: 100%;
     height: 900px;
   }
 }
