@@ -1,10 +1,6 @@
-/* =========================
-   1. 기본 스타일: 색상과 글자 정보
-========================= */
-
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
-/* /색상, 크기, 공통 여백 변수/ */
+/* 공통 변수와 크기 계산 기준 */
 :root {
   --yellow: #ffdf00;
   --red: #ef2d1c;
@@ -21,134 +17,58 @@
   --space-5: 20px;
 }
 
-/* /요소 크기 계산 기준/ */
 * {
   box-sizing: border-box;
 }
 
-/* /페이지 배경, 글자색, 글꼴/ */
+/* =========================
+   모바일: 기본 스타일
+========================= */
+
+/* 색상 */
 body {
-  margin: 0;
   background: var(--yellow);
   color: var(--ink);
-  font-family: "Pretendard", Arial, sans-serif;
-  font-size: 16px;
 }
 
-/* /전시장 이름 글자 설정/ */
-.v {
-  font-weight: 800;
-  line-height: 1.05;
-}
-
-/* /전시장 위 빨간 선 크기/ */
-.vr {
+.r1,
+.r2,
+.r3 {
   background: var(--red);
-  height: var(--venue-mark-thickness);
 }
 
-/* /전시장 주소 크기와 위 여백/ */
-.va {
-  margin-top: var(--space-1);
-  font-size: 0.72em;
-}
-
-/* /전시 분야 글자 설정/ */
-.c {
+.g,
+.anniversary {
   color: var(--red);
-  font-weight: 800;
 }
 
-/* /메인 제목 글자 크기와 자간/ */
-.ka {
-  font-size: 14.5vw;
-  font-weight: 900;
-  line-height: 0.82;
-  letter-spacing: -0.075em;
-  white-space: nowrap;
-}
-
-/* /빨간 띠 제목 글자와 배경/ */
-.et {
+.j {
   background: var(--red);
-  font-size: clamp(18px, 6vw, 22px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
 }
 
-/* /설명 글자 크기와 줄 간격/ */
-.d {
-  font-weight: 500;
-  line-height: 1.28;
+.p {
+  background: var(--yellow);
 }
 
-/* /설명 소제목 강조/ */
-.dk {
-  margin-bottom: var(--space-0-5);
-  font-weight: 700;
-}
-
-/* /기념일 영역 글자색과 줄 간격/ */
-.a6 {
-  color: var(--red);
-  line-height: 0.82;
-}
-
-/* /기념 숫자 크기와 자간/ */
-.n6 {
-  font-size: clamp(48px, 12vw, 56px);
-  font-weight: 900;
-  letter-spacing: -0.07em;
-}
-
-/* /기념일 이름 크기와 숫자와의 간격/ */
-.l6 {
-  margin-top: var(--space-1);
-  font-size: clamp(18px, 2.4vw, 20px);
-  font-weight: 900;
-}
-
-/* /관람 안내 글자 크기와 줄 간격/ */
-.i {
-  line-height: 1.2;
-}
-
-/* /관람 안내 칸 테두리/ */
-.i > div {
-  min-width: 0;
+.table > div {
   border-right: 1px solid var(--table-line);
   border-bottom: 1px solid var(--table-line);
 }
 
-/* /안내 칸 안의 글자 배치/ */
-.ic {
-  display: flex;
-  align-items: center;
-  gap: 0.3em;
+.table {
+  border-top: 1px solid var(--table-line);
+  border-left: 1px solid var(--table-line);
 }
 
-/* /안내 항목 이름 굵기/ */
-.il {
-  font-weight: 700;
+/* 위치와 배치 */
+body {
+  margin: 0;
 }
 
-/* /안내 내용 글자 굵기/ */
-.iv {
-  font-weight: 500;
-}
-
-/* =========================
-   2. 레이아웃: 위치와 정렬
-========================= */
-
-/* /전체 포스터 배치와 기본 크기/ */
 .p {
   position: relative;
   isolation: isolate;
   display: grid;
-  background: var(--yellow);
   align-content: start;
   grid-template-areas:
     "header"
@@ -159,13 +79,10 @@ body {
     "info";
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: calc(49.35vw - var(--space-2)) auto auto auto auto auto;
-  width: 100%;
-  min-height: 100vh;
   margin-inline: auto;
   padding: var(--outer-gap);
 }
 
-/* /인물 이미지와 장식 배치/ */
 .p1 {
   position: absolute;
   z-index: 1;
@@ -177,15 +94,222 @@ body {
   align-items: end;
 }
 
-/* /인물 이미지 크기와 비율/ */
-.pf {
+.p1 > .i {
   grid-column: 2;
+}
+
+.bbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.bbox1,
+.g,
+.k,
+.j,
+.d,
+.anniversary,
+.table {
+  z-index: 2;
+}
+
+.bbox1,
+.g {
+  text-align: right;
+}
+
+.k {
+  grid-area: title;
+  margin-top: var(--space-4);
+  text-align: center;
+}
+
+.j {
+  grid-area: exhibition;
+  margin-top: var(--space-5);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+.anniversary {
+  grid-area: anniversary;
+  display: flex;
+  flex-direction: column;
+}
+
+.d {
+  grid-area: description;
+  padding-bottom: var(--space-1);
+}
+
+.table {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(58px, 1fr));
+}
+
+.anniversary,
+.d,
+.table {
+  margin-top: 30px;
+}
+
+.r2 {
+  margin-bottom: var(--space-2);
+}
+
+.jo {
+  margin-top: var(--space-1);
+}
+
+.ka {
+  margin-bottom: var(--space-0-5);
+}
+
+.geb {
+  margin-top: var(--space-1);
+}
+
+.table > :is(.e, .ge, .mi, .n) {
+  padding: var(--space-1) var(--space-2);
+  text-align: center;
+}
+
+.table > :is(.wo, .m, .f, [class~="5"]) {
+  padding: var(--space-2);
+}
+
+:is(.box1, .box2) :is(.e, .ge, .mi, .n),
+:is(.box1, .box2) :is(.wo, .m, .f, [class~="5"]) {
+  padding: 0;
+}
+
+:is(.box1, .box2) {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2);
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 0.1em;
+}
+
+:is(.r1, .r2, .r3) {
+  position: absolute;
+  z-index: 0;
+}
+
+.r1 {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+}
+
+.r3 {
+  z-index: 3;
+  position: static;
+  align-self: flex-end;
+  flex: 1 1 0;
+  visibility: hidden;
+}
+
+/* 크기와 글자 */
+body {
+  font-family: "Pretendard", Arial, sans-serif;
+  font-size: 16px;
+}
+
+.bbox1 {
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.r2 {
+  height: var(--venue-mark-thickness);
+}
+
+.jo {
+  font-size: 0.72em;
+}
+
+.g {
+  font-weight: 800;
+}
+
+.k {
+  font-size: 14.5vw;
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+}
+
+.j {
+  font-size: clamp(18px, 6vw, 22px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.d {
+  max-width: 464px;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.ka {
+  font-weight: 700;
+}
+
+.anniversary {
+  line-height: 0.82;
+}
+
+[class~="6"] {
+  font-size: clamp(48px, 12vw, 56px);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+.geb {
+  font-size: clamp(18px, 2.4vw, 20px);
+  font-weight: 900;
+}
+
+.table {
+  line-height: 1.2;
+}
+
+.table > div {
+  min-width: 0;
+}
+
+:is(.e, .ge, .mi, .n) {
+  font-weight: 700;
+}
+
+:is(.wo, .m, .f, [class~="5"]) {
+  font-weight: 500;
+}
+
+.p {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.p1 > .i {
   width: 100%;
   aspect-ratio: 77 / 100;
 }
 
-/* /사진 자르기와 표시 위치/ */
-.pf img {
+.i {
   display: block;
   width: 100%;
   height: 100%;
@@ -194,159 +318,31 @@ body {
   mix-blend-mode: multiply;
 }
 
-/* /전시장 정보와 빨간 장식 위치/ */
-.p2 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.bbox {
   width: 41%;
 }
 
-/* /포스터 요소의 겹침 순서/ */
-.v,
-.c,
-.ka,
-.et,
-.d,
-.a6,
-.i {
-  z-index: 2;
-}
-
-/* /전시장 정보 정렬 위치/ */
-.v {
-  width: 100%;
-  text-align: right;
-}
-
-/* /빨간 선 아래 여백/ */
-.vr {
-  margin-bottom: var(--space-2);
-}
-
-/* /전시 분야 정렬과 줄바꿈/ */
-.c {
-  width: 100%;
-  text-align: right;
-}
-
-/* /메인 제목 위치와 정렬/ */
-.ka {
-  grid-area: title;
-  margin-top: var(--space-4);
-  text-align: center;
-}
-
-/* /전시 제목 띠 위치와 안쪽 여백/ */
-.et {
-  grid-area: exhibition;
-  margin-top: var(--space-5);
-  padding: var(--space-2);
-  text-align: center;
-}
-
-/* /기념일 요소 세로 배치/ */
-.a6 {
-  grid-area: anniversary;
-  display: flex;
-  flex-direction: column;
-}
-
-/* /설명 영역 위치와 너비/ */
-.d {
-  grid-area: description;
-  max-width: 464px;
-  padding-bottom: var(--space-1);
-}
-
-/* /관람 안내 표 위치와 열 구성/ */
-.i {
-  grid-area: info;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(58px, 1fr));
-  border-top: 1px solid var(--table-line);
-  border-left: 1px solid var(--table-line);
-}
-
-/* /기념일, 설명, 안내 표 사이 공통 간격/ */
-.a6,
-.d,
-.i {
-  margin-top: 30px;
-}
-
-/* /표 항목 이름 안쪽 여백/ */
-.i > .il {
-  padding: var(--space-1) var(--space-2);
-  text-align: center;
-}
-
-/* /표 내용 안쪽 여백/ */
-.i > .iv {
-  padding: var(--space-2);
-}
-
-/* /표 안에 있는 글자 여백 제거/ */
-.ic .il,
-.ic .iv {
-  padding: 0;
-}
-
-/* /회원 안내 칸 크기와 여백/ */
-.ic {
-  padding: var(--space-2);
-  flex-wrap: wrap;
-  align-content: center;
-  gap: 0.1em;
-}
-
-/* /빨간 장식 블록 기본 모양/ */
-.rb {
-  position: absolute;
-  z-index: 0;
-  background: var(--red);
-}
-
-/* /왼쪽 빨간 블록 위치/ */
-.rb1 {
-  position: relative;
-  grid-column: 1;
-  grid-row: 1;
-  align-self: stretch;
+.bbox1,
+.g {
   width: 100%;
 }
 
-/* /오른쪽 빨간 블록 크기와 표시/ */
-.rb2 {
-  z-index: 3;
-  position: static;
-  align-self: flex-end;
-  flex: 1 1 0;
+.r1 {
+  width: 100%;
+}
+
+.r3 {
   min-height: 0;
   width: var(--venue-mark-thickness);
-  visibility: hidden;
 }
 
 /* =========================
-   3. 태블릿
+   태블릿: 700px 이상
 ========================= */
-
-/* /태블릿 레이아웃과 크기 조정/ */
 @media (min-width: 700px) {
-  .v {
-    font-size: clamp(16px, 5.2vw, 22px);
-  }
+  /* 색상: 공통 색상 유지 */
 
-  .ka {
-    font-size: 15vw;
-  }
-
-  /* /두 열 배치와 사진 영역 높이/ */
+  /* 위치와 배치 */
   .p {
     grid-template-areas:
       "header header"
@@ -360,109 +356,104 @@ body {
     min-height: 0;
   }
 
-  /* /태블릿 사진 너비/ */
   .p1 {
     grid-template-columns: var(--portrait-mark-width) 31% minmax(0, 1fr);
   }
 
-  /* /태블릿 전시장 정보 너비/ */
-  .p2 {
-    width: 40%;
-  }
-
-  /* /태블릿 전시 분야 글자 크기/ */
-  .c {
-    font-size: 19px;
-    white-space: nowrap;
-  }
-
-  /* /제목과 띠 위쪽 간격/ */
-  .ka,
-  .et {
+  .k,
+  .j {
     margin-top: var(--space-5);
   }
 
-  /* /태블릿 띠 여백과 글자 크기/ */
-  .et {
-    padding-block: 1.2vw;
-    font-size: 29px;
-  }
-
-  /* /태블릿 기념 숫자 크기/ */
-  .n6 {
-    font-size: 10vw;
-  }
-
-  /* /태블릿 기념일 이름 간격/ */
-  .l6 {
+  .geb {
     margin-top: 0.8vw;
   }
 
-  /* /태블릿 설명 너비와 글자 크기/ */
-  .d {
-    max-width: none;
-  }
-
-  /* /태블릿 설명 소제목 간격/ */
-  .dk {
-    margin-bottom: 0.4vw;
-  }
-
-  /* /태블릿 안내 표 정렬/ */
-  .i {
+  .table {
     align-self: start;
     grid-template-rows: none;
   }
 
-  /* /태블릿 아래 영역 간격/ */
-  .a6,
+  .anniversary,
   .d,
-  .i {
+  .table {
     margin-top: 7vw;
   }
 
-  /* /태블릿 표 항목 이름 여백/ */
-  .i > .il {
+  .table > :is(.e, .ge, .mi, .n) {
     padding: var(--space-2);
   }
 
-  /* /태블릿 표 내용 여백과 줄 간격/ */
-  .i > .iv,
-  .ic {
+  .table > :is(.wo, .m, .f, [class~="5"]),
+  :is(.box1, .box2) {
     padding: var(--space-2);
-    line-height: 1.35;
   }
 
-  /* /태블릿 회원 안내 칸 줄바꿈/ */
-  .ic {
+  :is(.box1, .box2) {
     align-content: normal;
     gap: 6px;
     min-height: 0;
   }
 
-  /* /오른쪽 빨간 장식 표시/ */
-  .rb2 {
+  .ka {
+    margin-bottom: 0.4vw;
+  }
+
+  .r3 {
     visibility: visible;
+  }
+
+  /* 크기와 글자 */
+  .bbox1 {
+    font-size: clamp(16px, 5.2vw, 22px);
+  }
+
+  .k {
+    font-size: 15vw;
+  }
+
+  .bbox {
+    width: 40%;
+  }
+
+  .g {
+    font-size: 19px;
+    white-space: nowrap;
+  }
+
+  .j {
+    padding-block: 1.2vw;
+    font-size: 29px;
+  }
+
+  [class~="6"] {
+    font-size: 10vw;
+  }
+
+  .d {
+    max-width: none;
+  }
+
+  .table > :is(.wo, .m, .f, [class~="5"]),
+  :is(.box1, .box2) {
+    line-height: 1.35;
   }
 }
 
 /* =========================
-   4. 데스크톱
+   데스크톱: 850px 이상
 ========================= */
-
-/* /데스크톱 포스터 배치와 크기/ */
 @media (min-width: 850px) {
-  /* /고정 높이 20행 데스크톱 격자/ */
+  /* 색상: 공통 색상 유지 */
+
+  /* 위치와 배치 */
   .p {
     grid-template-areas: none;
     grid-template-columns: repeat(20, minmax(0, 1fr));
     grid-template-rows: repeat(20, minmax(0, 1fr));
-    width: 100%;
-    height: 900px;
     overflow: hidden;
   }
 
-  /* /데스크톱 사진 위치와 크기/ */
   .p1 {
     position: relative;
     inset: auto;
@@ -472,23 +463,15 @@ body {
     grid-template-columns: var(--portrait-mark-width) 270px minmax(0, 1fr);
   }
 
-  /* /데스크톱 전시장 이름 크기/ */
-  .v {
-    font-size: 29px;
-  }
-
-  /* /데스크톱 메인 제목 위치와 최대 크기/ */
-  .ka {
+  .k {
     grid-column: 1 / -1;
     grid-row: 9 / span 4;
     align-self: center;
     margin: 0;
-    font-size: clamp(64px, 12vw, 173px);
     text-align: center;
   }
 
-  /* /데스크톱 전시 띠 위치/ */
-  .et {
+  .j {
     grid-column: 10 / -1;
     grid-row: 13 / span 2;
     margin: 0;
@@ -496,40 +479,29 @@ body {
     text-align: center;
   }
 
-  /* /데스크톱 기념일 위치/ */
-  .a6 {
+  .anniversary {
     grid-column: 10 / span 4;
     grid-row: 16 / span 4;
     align-self: center;
     margin: 0;
   }
 
-  /* /데스크톱 기념 숫자 크기/ */
-  .n6 {
-    font-size: 96px;
-  }
-
-  /* /데스크톱 기념일 이름 간격/ */
-  .l6 {
+  .geb {
     margin-top: var(--space-2);
   }
 
-  /* /데스크톱 설명 위치와 글자 크기/ */
   .d {
     grid-column: 1 / span 8;
     grid-row: 13 / span 2;
     margin: 0;
     padding: 0;
-    font-size: 18px;
   }
 
-  /* /데스크톱 설명 소제목 간격/ */
-  .dk {
+  .ka {
     margin-bottom: var(--space-1);
   }
 
-  /* /데스크톱 안내 표 위치와 행 구성/ */
-  .i {
+  .table {
     grid-column: 14 / -1;
     grid-row: 16 / span 4;
     align-self: center;
@@ -538,63 +510,77 @@ body {
     grid-template-rows: repeat(4, minmax(0, 1fr));
   }
 
-  /* /설명과 띠의 위쪽 정렬/ */
-  .et,
+  .j,
   .d {
     align-self: start;
   }
 
-  /* /표 칸 글자 세로 정렬/ */
-  .i > .il,
-  .i > .iv {
+  .table > :is(.e, .ge, .mi, .n),
+  .table > :is(.wo, .m, .f, [class~="5"]) {
     display: flex;
     align-items: center;
     padding: var(--space-1);
   }
 
-  /* /표 항목 이름 가운데 정렬/ */
-  .i > .il {
+  .table > :is(.e, .ge, .mi, .n) {
     justify-content: center;
   }
 
-  /* /안내 표의 항목별 칸 위치/ */
-
-  /* /표 항목별 행과 열 배치/ */
-  .i > .il:nth-child(1) {
+  .table > :is(.e, .ge, .mi, .n):nth-child(1) {
     grid-column: 1;
     grid-row: 3 / span 2;
   }
 
-  .i > .il:nth-child(2) {
+  .table > :is(.e, .ge, .mi, .n):nth-child(2) {
     grid-column: 1;
     grid-row: 1 / span 2;
   }
 
-  .i > .iv:nth-child(3) {
+  .table > :is(.wo, .m, .f, [class~="5"]):nth-child(3) {
     grid-column: 2;
     grid-row: 1;
   }
 
-  .i > .iv:nth-child(4) {
+  .table > :is(.wo, .m, .f, [class~="5"]):nth-child(4) {
     grid-column: 2;
     grid-row: 3;
   }
 
-  /* /회원 안내 칸 글자 배치/ */
-  .ic {
+  :is(.box1, .box2):nth-child(5), :is(.box1, .box2):nth-child(6) {
     align-content: center;
     gap: var(--space-1);
     padding: var(--space-1);
   }
 
-  /* /회원 안내 칸 위치/ */
-  .ic:nth-child(5) {
+  :is(.box1, .box2):nth-child(5) {
     grid-column: 2;
     grid-row: 2;
   }
 
-  .ic:nth-child(6) {
+  :is(.box1, .box2):nth-child(6) {
     grid-column: 2;
     grid-row: 4;
+  }
+
+  /* 크기와 글자 */
+  .p {
+    width: 100%;
+    height: 900px;
+  }
+
+  .bbox1 {
+    font-size: 29px;
+  }
+
+  .k {
+    font-size: clamp(64px, 12vw, 173px);
+  }
+
+  [class~="6"] {
+    font-size: 96px;
+  }
+
+  .d {
+    font-size: 18px;
   }
 }
