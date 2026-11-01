@@ -10,25 +10,20 @@
   --red: #ef2d1c;
   --ink: #080808;
   --table-line: #4a4100;
-  --venue-mark-thickness: 1rem;
-  --portrait-mark-width: 3.5rem;
-  --outer-gap: 0.75rem;
-  --space-0-5: 0.125rem;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
+  --venue-mark-thickness: 16px;
+  --portrait-mark-width: 56px;
+  --outer-gap: 12px;
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
 }
 
 /* /요소 크기 계산 기준/ */
 * {
   box-sizing: border-box;
-}
-
-/* /기본 글꼴 크기/ */
-html {
-  font-size: 16px;
 }
 
 /* /페이지 배경, 글자색, 글꼴/ */
@@ -37,11 +32,11 @@ body {
   background: var(--yellow);
   color: var(--ink);
   font-family: "Pretendard", Arial, sans-serif;
+  font-size: 16px;
 }
 
 /* /전시장 이름 글자 설정/ */
 .v {
-  font-size: clamp(1rem, 5.2vw, 1.4rem);
   font-weight: 800;
   line-height: 1.05;
 }
@@ -50,11 +45,6 @@ body {
 .vr {
   background: var(--red);
   height: var(--venue-mark-thickness);
-}
-
-/* /전시장 이름 기본 여백 제거/ */
-.vn {
-  margin: 0;
 }
 
 /* /전시장 주소 크기와 위 여백/ */
@@ -66,14 +56,12 @@ body {
 /* /전시 분야 글자 설정/ */
 .c {
   color: var(--red);
-  font-size: 1rem;
   font-weight: 800;
 }
 
 /* /메인 제목 글자 크기와 자간/ */
 .ka {
-  margin: 0;
-  font-size: 15vw;
+  font-size: 14.5vw;
   font-weight: 900;
   line-height: 0.82;
   letter-spacing: -0.075em;
@@ -82,9 +70,8 @@ body {
 
 /* /빨간 띠 제목 글자와 배경/ */
 .et {
-  margin: 0;
   background: var(--red);
-  font-size: 1.8rem;
+  font-size: clamp(18px, 6vw, 22px);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -93,7 +80,6 @@ body {
 
 /* /설명 글자 크기와 줄 간격/ */
 .d {
-  font-size: 1rem;
   font-weight: 500;
   line-height: 1.28;
 }
@@ -104,11 +90,6 @@ body {
   font-weight: 700;
 }
 
-/* /설명 본문 기본 여백 제거/ */
-.dt {
-  margin: 0;
-}
-
 /* /기념일 영역 글자색과 줄 간격/ */
 .a6 {
   color: var(--red);
@@ -117,7 +98,7 @@ body {
 
 /* /기념 숫자 크기와 자간/ */
 .n6 {
-  font-size: clamp(3rem, 12vw, 3.5rem);
+  font-size: clamp(48px, 12vw, 56px);
   font-weight: 900;
   letter-spacing: -0.07em;
 }
@@ -125,14 +106,13 @@ body {
 /* /기념일 이름 크기와 숫자와의 간격/ */
 .l6 {
   margin-top: var(--space-1);
-  font-size: clamp(1.15rem, 2.4vw, 1.25rem);
+  font-size: clamp(18px, 2.4vw, 20px);
   font-weight: 900;
 }
 
 /* /관람 안내 글자 크기와 줄 간격/ */
 .i {
   line-height: 1.2;
-  font-size: 1rem;
 }
 
 /* /관람 안내 칸 테두리/ */
@@ -252,7 +232,6 @@ body {
 .c {
   width: 100%;
   text-align: right;
-  white-space: nowrap;
 }
 
 /* /메인 제목 위치와 정렬/ */
@@ -280,7 +259,7 @@ body {
 /* /설명 영역 위치와 너비/ */
 .d {
   grid-area: description;
-  max-width: 29rem;
+  max-width: 464px;
   padding-bottom: var(--space-1);
 }
 
@@ -289,6 +268,7 @@ body {
   grid-area: info;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(58px, 1fr));
   border-top: 1px solid var(--table-line);
   border-left: 1px solid var(--table-line);
 }
@@ -297,7 +277,7 @@ body {
 .a6,
 .d,
 .i {
-  margin-top: 1.875rem;
+  margin-top: 30px;
 }
 
 /* /표 항목 이름 안쪽 여백/ */
@@ -319,8 +299,10 @@ body {
 
 /* /회원 안내 칸 크기와 여백/ */
 .ic {
-  min-height: 3.6rem;
   padding: var(--space-2);
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 0.1em;
 }
 
 /* /빨간 장식 블록 기본 모양/ */
@@ -356,6 +338,14 @@ body {
 
 /* /태블릿 레이아웃과 크기 조정/ */
 @media (min-width: 700px) {
+  .v {
+    font-size: clamp(16px, 5.2vw, 22px);
+  }
+
+  .ka {
+    font-size: 15vw;
+  }
+
   /* /두 열 배치와 사진 영역 높이/ */
   .p {
     grid-template-areas:
@@ -382,7 +372,8 @@ body {
 
   /* /태블릿 전시 분야 글자 크기/ */
   .c {
-    font-size: 1.2rem;
+    font-size: 19px;
+    white-space: nowrap;
   }
 
   /* /제목과 띠 위쪽 간격/ */
@@ -394,7 +385,7 @@ body {
   /* /태블릿 띠 여백과 글자 크기/ */
   .et {
     padding-block: 1.2vw;
-    font-size: 1.8rem;
+    font-size: 29px;
   }
 
   /* /태블릿 기념 숫자 크기/ */
@@ -410,7 +401,6 @@ body {
   /* /태블릿 설명 너비와 글자 크기/ */
   .d {
     max-width: none;
-    font-size: 1rem;
   }
 
   /* /태블릿 설명 소제목 간격/ */
@@ -421,6 +411,7 @@ body {
   /* /태블릿 안내 표 정렬/ */
   .i {
     align-self: start;
+    grid-template-rows: none;
   }
 
   /* /태블릿 아래 영역 간격/ */
@@ -444,28 +435,14 @@ body {
 
   /* /태블릿 회원 안내 칸 줄바꿈/ */
   .ic {
-    flex-wrap: wrap;
-    gap: 0.35rem;
+    align-content: normal;
+    gap: 6px;
     min-height: 0;
   }
 
   /* /오른쪽 빨간 장식 표시/ */
   .rb2 {
     visibility: visible;
-  }
-}
-
-/* /좁은 화면 관람 안내 표 행과 글자 배치/ */
-@media (max-width: 649px) {
-  .i {
-    grid-template-rows: repeat(3, minmax(3.6rem, 1fr));
-  }
-
-  .ic {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    gap: 0.1em;
   }
 }
 
@@ -477,12 +454,11 @@ body {
 @media (min-width: 850px) {
   /* /고정 높이 20행 데스크톱 격자/ */
   .p {
-    display: grid;
     grid-template-areas: none;
     grid-template-columns: repeat(20, minmax(0, 1fr));
     grid-template-rows: repeat(20, minmax(0, 1fr));
     width: 100%;
-    height: 56.25rem;
+    height: 900px;
     overflow: hidden;
   }
 
@@ -492,23 +468,22 @@ body {
     inset: auto;
     grid-column: 1 / -1;
     grid-row: 1 / span 8;
-    align-self: end;
-    grid-template-columns: var(--portrait-mark-width) 16rem minmax(0, 1fr);
+    align-self: start;
+    grid-template-columns: var(--portrait-mark-width) 270px minmax(0, 1fr);
   }
 
   /* /데스크톱 전시장 이름 크기/ */
   .v {
-    font-size: 1.8rem;
+    font-size: 29px;
   }
 
   /* /데스크톱 메인 제목 위치와 최대 크기/ */
   .ka {
-    position: static;
     grid-column: 1 / -1;
     grid-row: 9 / span 4;
     align-self: center;
     margin: 0;
-    font-size: clamp(4rem, 12vw, 10.8rem);
+    font-size: clamp(64px, 12vw, 173px);
     text-align: center;
   }
 
@@ -523,7 +498,6 @@ body {
 
   /* /데스크톱 기념일 위치/ */
   .a6 {
-    position: static;
     grid-column: 10 / span 4;
     grid-row: 16 / span 4;
     align-self: center;
@@ -532,7 +506,7 @@ body {
 
   /* /데스크톱 기념 숫자 크기/ */
   .n6 {
-    font-size: 6rem;
+    font-size: 96px;
   }
 
   /* /데스크톱 기념일 이름 간격/ */
@@ -544,10 +518,9 @@ body {
   .d {
     grid-column: 1 / span 8;
     grid-row: 13 / span 2;
-    width: auto;
     margin: 0;
     padding: 0;
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 
   /* /데스크톱 설명 소제목 간격/ */
@@ -560,8 +533,6 @@ body {
     grid-column: 14 / -1;
     grid-row: 16 / span 4;
     align-self: center;
-    width: auto;
-    height: auto;
     margin: 0;
     grid-template-columns: 28% minmax(0, 1fr);
     grid-template-rows: repeat(4, minmax(0, 1fr));
@@ -611,7 +582,6 @@ body {
 
   /* /회원 안내 칸 글자 배치/ */
   .ic {
-    flex-wrap: wrap;
     align-content: center;
     gap: var(--space-1);
     padding: var(--space-1);
@@ -626,40 +596,5 @@ body {
   .ic:nth-child(6) {
     grid-column: 2;
     grid-row: 4;
-  }
-}
-
-/* =========================
-   5. 작은 화면
-========================= */
-
-/* /아주 작은 화면 표 안쪽 여백/ */
-@media (max-width: 360px) {
-  .i > .il,
-  .iv,
-  .ic {
-    padding-inline: var(--space-2);
-  }
-}
-
-/* /작은 화면 제목 글자 크기/ */
-@media (max-width: 420px) {
-  .v {
-    font-size: 1rem;
-  }
-
-  .ka {
-    font-size: 14.5vw;
-  }
-
-  .et {
-    font-size: clamp(1.1rem, 6vw, 1.4rem);
-  }
-}
-
-/* /좁은 화면 전시 분야 줄바꿈/ */
-@media (max-width: 699px) {
-  .c {
-    white-space: normal;
   }
 }
