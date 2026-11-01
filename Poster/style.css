@@ -53,6 +53,8 @@ body {
 .table > div {
   border-right: 1px solid var(--table-line);
   border-bottom: 1px solid var(--table-line);
+  display: flex;
+  align-items: center;
 }
 
 .table {
@@ -167,10 +169,6 @@ body {
 
 .jo {
   margin-top: var(--space-1);
-}
-
-.ka {
-  margin-bottom: var(--space-0-5);
 }
 
 .geb {
@@ -293,11 +291,11 @@ body {
   min-width: 0;
 }
 
-:is(.e, .ge, .mi, .n) {
+:is(.e, .ge) {
   font-weight: 700;
 }
 
-:is(.wo, .m, .f, [class~="5"]) {
+:is(.mi, .n, .wo, .m, .f, [class~="5"]) {
   font-weight: 500;
 }
 
@@ -400,10 +398,6 @@ body {
     min-height: 0;
   }
 
-  .ka {
-    margin-bottom: 0.4vw;
-  }
-
   .r3 {
     visibility: visible;
   }
@@ -477,10 +471,6 @@ body {
     grid-row: 13 / span 2;
     margin: 0;
     padding: 0;
-  }
-
-  .ka {
-    margin-bottom: var(--space-1);
   }
 
   .table {
