@@ -154,7 +154,6 @@ body {
   grid-area: info;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(58px, 1fr));
 }
 
 .anniversary,
@@ -310,16 +309,10 @@ body {
 
   .table {
     align-self: start;
-    grid-template-rows: none;
-  }
-
-  .table > :is(.e, .ge, .wo, .m) {
-    padding: var(--space-2);
   }
 
   :is(.box1, .box2) {
     align-content: normal;
-    gap: 6px;
     min-height: 0;
   }
 
