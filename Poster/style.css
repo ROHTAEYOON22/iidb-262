@@ -8,7 +8,6 @@
   --table-line: #4a4100;
   --venue-mark-thickness: 16px;
   --portrait-mark-width: 56px;
-  --outer-gap: 12px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -19,10 +18,10 @@
 }
 
 /* =========================
-   모바일: 기본 스타일
+   모바일: 기본 스타일o
 ========================= */
 
-/* 색상 */
+/* 페이지 기본 */
 body {
   margin: 0;
   background: var(--yellow);
@@ -31,13 +30,13 @@ body {
   font-size: 16px;
   font-weight: 400;
 }
-
+/* 빨간막대 */
 .r1,
 .r2,
 .r3 {
   background: var(--red);
 }
-
+/* 빨간글자 */
 .g,
 .anniversary {
   color: var(--red);
@@ -69,7 +68,7 @@ main {
   display: grid;
   align-content: start;
   min-height: 0;
-  margin: var(--outer-gap);
+  margin: 12px;
   grid-template-areas:
     "header"
     "title"
@@ -84,9 +83,6 @@ main {
 .p1 {
   position: absolute;
   z-index: 1;
-  top: var(--outer-gap);
-  left: var(--outer-gap);
-  right: var(--outer-gap);
   display: grid;
   grid-template-columns: var(--portrait-mark-width) 38% minmax(0, 1fr);
   align-items: end;
@@ -186,7 +182,7 @@ main {
   padding: var(--space-2);
 }
 
-:is(.box1, .box2) :is(.mi, .n, .f, [class~="5"]) {
+:is(.box1, .box2) :is(.mi, .n, .f, .n5) {
   padding: 0;
 }
 
@@ -224,15 +220,16 @@ main {
   font-size: 17px;
   font-weight: 700;
 }
+/* 커지다 중지 */
 
 .jo {
-  font-size: 3vw;
+  font-size: clamp(0px, 3vw, 43.25px);
 }
 
 .a {
-  font-size: 4.44vw;
+  font-size: clamp(0px, 4.44vw, 64.01px);
 }
-
+/*  */
 .r2 {
   height: var(--venue-mark-thickness);
 }
@@ -246,7 +243,7 @@ main {
   font-weight: 700;
 }
 
-[class~="6"] {
+.n6 {
   font-size: 50px;
   font-weight: 700;
 }
@@ -260,7 +257,7 @@ main {
   font-weight: 700;
 }
 
-:is(.mi, .n, .wo, .m, .f, [class~="5"]) {
+:is(.mi, .n, .wo, .m, .f, .n5) {
   font-weight: 500;
 }
 
@@ -274,7 +271,7 @@ main {
 }
 
 /* =========================
-   태블릿: 700px 이상
+   태블릿: 700px 이상o
 ========================= */
 @media (min-width: 700px) {
   .bbox1 {
@@ -290,7 +287,7 @@ main {
     font-size: 30px;
   }
 
-  [class~="6"] {
+  .n6 {
     font-size: 95px;
   }
 
@@ -339,12 +336,12 @@ main {
 }
 
 /* =========================
-   데스크톱: 1050px 이상
+   데스크톱: 1075px 이상
 ========================= */
-@media (min-width: 1050px) {
+@media (min-width: 1075px) {
   /* 색상: 공통 색상 유지 */
 
-  /* 위치와 배치 */
+  /* 데스크톱 위치와 배치 */
   .p {
     grid-template-areas: none;
     grid-template-columns: repeat(20, minmax(0, 1fr));
@@ -402,14 +399,6 @@ main {
     align-self: start;
   }
 
-  .table > :is(.e, .ge, .wo, .m) {
-    padding: var(--space-1);
-  }
-
-  .table > :is(.e, .ge) {
-    justify-content: center;
-  }
-
   .table > :is(.e, .ge):nth-child(1) {
     grid-column: 1;
     grid-row: 3 / span 2;
@@ -430,6 +419,14 @@ main {
     grid-row: 3;
   }
 
+  .table > :is(.e, .ge, .wo, .m) {
+    padding: var(--space-1);
+  }
+
+  .table > :is(.e, .ge) {
+    justify-content: center;
+  }
+
   :is(.box1, .box2):nth-child(5),
   :is(.box1, .box2):nth-child(6) {
     align-content: center;
@@ -447,10 +444,10 @@ main {
     grid-row: 4;
   }
 
-  /* 크기와 글자 */
+  /* 데스크톱 스타일과 크기 o*/
   .p {
     height: 900px;
-    margin: 0px 120px;
+    margin: 75px 120px 0;
     transform: rotate(-5deg);
   }
 }
