@@ -38,24 +38,23 @@ body {
 }
 /* 표에 선설정 */
 .table > div {
-  border-right: 1px solid var(--table-line);
+  border-right: 1px solid var(--table-line); /* 주요 */
   border-bottom: 1px solid var(--table-line);
   display: flex;
   align-items: center;
-  min-width: 0;
+  min-width: 0; /* 주요 */
 }
 
 .table {
-  border-top: 1px solid var(--table-line);
+  border-top: 1px solid var(--table-line); /* 주요 */
   border-left: 1px solid var(--table-line);
 }
 
 /* 크기와 글자 */
 /* 이미지 */
 .i {
-  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   /* 비율 채우기 사진 */
   object-fit: cover;
 }
@@ -66,7 +65,7 @@ body {
 }
 
 .a {
-  font-size: clamp(0px, 4.44vw, 64.01px);
+  font-size: clamp(0px, 4.44vw, 64.01px); /* 주요 */
 }
 
 .jo {
@@ -87,6 +86,7 @@ body {
 }
 
 .j {
+  background: var(--red);
   font-size: 20px;
   font-weight: 700;
   text-align: center;
@@ -127,32 +127,21 @@ body {
 /* 위치와 배치 */
 main {
   display: grid;
-  min-height: 100vh;
-  place-items: center stretch;
+  min-height: 100vh; /* 주요 */
+  align-items: center;
+  justify-items: stretch;
 }
-
 .p {
   position: relative;
-  isolation: isolate;
   display: grid;
-  align-content: start;
-  min-height: 0;
   margin: 12px;
-  grid-template-areas:
-    "header"
-    "title"
-    "exhibition"
-    "anniversary"
-    "description"
-    "info";
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: calc(49.35vw - 8px) auto auto auto auto auto;
 }
 
 .p1 {
-  position: absolute;
-  z-index: 1;
+  position: relative; /* 주요 */
   display: grid;
+  grid-column: 1;
+  grid-row: 1;
   grid-template-columns: 56px 38% minmax(0, 1fr);
   align-items: end;
 }
@@ -166,7 +155,6 @@ main {
 
 .p1 > .i {
   grid-column: 2;
-  aspect-ratio: 77 / 100;
 }
 
 .bbox {
@@ -180,7 +168,6 @@ main {
 }
 
 .bbox1 > .r2 {
-  position: relative;
   width: 100%;
   margin-bottom: 8px;
 }
@@ -190,49 +177,38 @@ main {
 }
 
 .r3 {
-  z-index: 3;
   align-self: flex-end;
   flex: 1 1 0;
   visibility: hidden;
-  min-height: 0;
   width: 16px;
 }
 
-.bbox1,
-.g,
-.k,
-.j,
-.d,
-.anniversary,
-.table {
-  z-index: 2;
-}
-
 .k {
-  grid-area: title;
+  grid-column: 1;
+  grid-row: 2;
   margin-top: 2vw;
 }
 
 .j {
-  background: var(--red);
-  grid-area: exhibition;
+  grid-column: 1;
+  grid-row: 3;
   margin-top: 2vw;
   padding-block: 12px;
 }
 
 .d {
-  grid-area: description;
-  padding-bottom: 4px;
+  grid-column: 1;
+  grid-row: 5;
 }
 
 .anniversary {
-  grid-area: anniversary;
-  display: flex;
-  flex-direction: column;
+  grid-column: 1;
+  grid-row: 4;
 }
 
 .table {
-  grid-area: info;
+  grid-column: 1;
+  grid-row: 6;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -243,26 +219,9 @@ main {
   margin-top: 20px;
 }
 
-.table > :is(.e, .ge) {
-  padding: 4px 8px;
-}
-
-.table > :is(.wo, .m) {
+.table > div {
   padding: 8px;
 }
-
-.table > .mi {
-  padding: 8px;
-}
-
-.table > .n {
-  padding: 8px;
-}
-
-:is(.r1, .r2) {
-  z-index: 0;
-}
-
 /* =========================
    태블릿: 700px 이상o
 ========================= */
@@ -289,7 +248,6 @@ main {
     grid-template-areas: none;
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     column-gap: 2vw;
-    grid-template-rows: 39vw auto auto auto auto;
   }
 
   .p1 {
@@ -352,6 +310,10 @@ main {
     grid-column: 1 / -1;
     grid-row: 1 / span 8;
     grid-template-columns: 56px 270px minmax(0, 1fr);
+  }
+
+  .p1 > .i {
+    height: 100%;
   }
 
   .k {
