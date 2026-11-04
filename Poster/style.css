@@ -1,16 +1,11 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
-/* 공통 변수와 크기 계산 기준 */
+/* 공통 색상 */
 :root {
   --yellow: #ffdf00;
   --red: #ef2d1c;
   --ink: #080808;
   --table-line: #4a4100;
-  --venue-mark-thickness: 16px;
-  --portrait-mark-width: 56px;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
 }
 
 * {
@@ -41,7 +36,7 @@ body {
 .anniversary {
   color: var(--red);
 }
-
+/* 표에 선설정 */
 .table > div {
   border-right: 1px solid var(--table-line);
   border-bottom: 1px solid var(--table-line);
@@ -53,6 +48,80 @@ body {
 .table {
   border-top: 1px solid var(--table-line);
   border-left: 1px solid var(--table-line);
+}
+
+/* 크기와 글자 */
+/* 이미지 */
+.i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* 비율 채우기 사진 */
+  object-fit: cover;
+}
+
+.bbox1 {
+  text-align: right;
+  font-weight: 700;
+}
+
+.a {
+  font-size: clamp(0px, 4.44vw, 64.01px);
+}
+
+.jo {
+  font-size: clamp(0px, 3vw, 43.25px);
+}
+
+.g {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.k {
+  font-size: clamp(0px, 12vw, 173px);
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.j {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.n6 {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.geb {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.r2 {
+  height: 16px;
+}
+
+.ka {
+  font-weight: 700;
+}
+
+.d {
+  font-weight: 500;
+}
+
+:is(.e, .ge) {
+  text-align: center;
+  font-weight: 700;
+}
+
+:is(.mi, .n, .wo, .m) {
+  font-weight: 500;
 }
 
 /* 위치와 배치 */
@@ -77,15 +146,22 @@ main {
     "description"
     "info";
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: calc(49.35vw - var(--space-2)) auto auto auto auto auto;
+  grid-template-rows: calc(49.35vw - 8px) auto auto auto auto auto;
 }
 
 .p1 {
   position: absolute;
   z-index: 1;
   display: grid;
-  grid-template-columns: var(--portrait-mark-width) 38% minmax(0, 1fr);
+  grid-template-columns: 56px 38% minmax(0, 1fr);
   align-items: end;
+}
+
+.r1 {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
 }
 
 .p1 > .i {
@@ -103,6 +179,25 @@ main {
   flex-direction: column;
 }
 
+.bbox1 > .r2 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.jo {
+  margin-top: 4px;
+}
+
+.r3 {
+  z-index: 3;
+  align-self: flex-end;
+  flex: 1 1 0;
+  visibility: hidden;
+  min-height: 0;
+  width: 16px;
+}
+
 .bbox1,
 .g,
 .k,
@@ -113,42 +208,27 @@ main {
   z-index: 2;
 }
 
-.bbox1,
-.g {
-  text-align: right;
-}
-
 .k {
   grid-area: title;
   margin-top: 2vw;
-  font-size: clamp(0px, 12vw, 173px);
-  font-weight: 800;
-  text-align: center;
-  white-space: nowrap;
 }
 
 .j {
   background: var(--red);
   grid-area: exhibition;
   margin-top: 2vw;
-  padding-block: var(--space-3);
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
+  padding-block: 12px;
+}
+
+.d {
+  grid-area: description;
+  padding-bottom: 4px;
 }
 
 .anniversary {
   grid-area: anniversary;
   display: flex;
   flex-direction: column;
-}
-
-.d {
-  grid-area: description;
-  max-width: 464px;
-  padding-bottom: var(--space-1);
-  font-weight: 500;
 }
 
 .table {
@@ -163,111 +243,24 @@ main {
   margin-top: 20px;
 }
 
-.bbox1 > .r2 {
-  position: relative;
-  width: 100%;
-  margin-bottom: var(--space-2);
-}
-
-.jo {
-  margin-top: var(--space-1);
-}
-
 .table > :is(.e, .ge) {
-  padding: var(--space-1) var(--space-2);
-  text-align: center;
+  padding: 4px 8px;
 }
 
 .table > :is(.wo, .m) {
-  padding: var(--space-2);
+  padding: 8px;
 }
 
-:is(.box1, .box2) :is(.mi, .n, .f, .n5) {
-  padding: 0;
+.table > .mi {
+  padding: 8px;
 }
 
-:is(.box1, .box2) {
-  display: flex;
-  align-items: center;
-  padding: var(--space-2);
-  flex-wrap: wrap;
-  align-content: center;
-  gap: 0.1em;
+.table > .n {
+  padding: 8px;
 }
 
 :is(.r1, .r2) {
   z-index: 0;
-}
-
-.r1 {
-  position: relative;
-  grid-column: 1;
-  grid-row: 1;
-  align-self: stretch;
-}
-
-.r3 {
-  z-index: 3;
-  align-self: flex-end;
-  flex: 1 1 0;
-  visibility: hidden;
-  min-height: 0;
-  width: var(--venue-mark-thickness);
-}
-
-/* 크기와 글자 */
-.bbox1 {
-  font-size: 17px;
-  font-weight: 700;
-}
-/* 커지다 중지 */
-
-.jo {
-  font-size: clamp(0px, 3vw, 43.25px);
-}
-
-.a {
-  font-size: clamp(0px, 4.44vw, 64.01px);
-}
-/*  */
-.r2 {
-  height: var(--venue-mark-thickness);
-}
-
-.g {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.ka {
-  font-weight: 700;
-}
-
-.n6 {
-  font-size: 50px;
-  font-weight: 700;
-}
-
-.geb {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-:is(.e, .ge) {
-  font-weight: 700;
-}
-
-:is(.mi, .n, .wo, .m, .f, .n5) {
-  font-weight: 500;
-}
-
-.i {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 32%;
-  mix-blend-mode: multiply;
 }
 
 /* =========================
@@ -293,28 +286,43 @@ main {
 
   /* 위치와 배치 */
   .p {
-    grid-template-areas:
-      "header header"
-      "title title"
-      "exhibition exhibition"
-      "anniversary anniversary"
-      "description info";
+    grid-template-areas: none;
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     column-gap: 2vw;
     grid-template-rows: 39vw auto auto auto auto;
   }
 
   .p1 {
-    grid-template-columns: var(--portrait-mark-width) 31% minmax(0, 1fr);
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    grid-template-columns: 56px 31% minmax(0, 1fr);
+  }
+
+  .k {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .j {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .anniversary {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+
+  .d {
+    grid-column: 1;
+    grid-row: 5;
   }
 
   .table {
-    align-self: start;
-  }
-
-  :is(.box1, .box2) {
-    align-content: normal;
-    min-height: 0;
+    grid-column: 2;
+    grid-row: 5;
   }
 
   .r3 {
@@ -324,14 +332,6 @@ main {
   /* 크기와 글자 */
   .bbox {
     width: 50%;
-  }
-
-  .g {
-    white-space: nowrap;
-  }
-
-  .d {
-    max-width: none;
   }
 }
 
@@ -343,24 +343,22 @@ main {
 
   /* 데스크톱 위치와 배치 */
   .p {
-    grid-template-areas: none;
     grid-template-columns: repeat(20, minmax(0, 1fr));
     grid-template-rows: repeat(20, minmax(0, 1fr));
   }
 
   .p1 {
     position: relative;
-    inset: auto;
     grid-column: 1 / -1;
     grid-row: 1 / span 8;
-    align-self: start;
-    grid-template-columns: var(--portrait-mark-width) 270px minmax(0, 1fr);
+    grid-template-columns: 56px 270px minmax(0, 1fr);
   }
 
   .k {
     grid-column: 1 / -1;
     grid-row: 9 / span 4;
     align-self: center;
+    /* vr2 지우기 */
     margin: 0;
   }
 
@@ -393,53 +391,46 @@ main {
     grid-template-columns: 28% minmax(0, 1fr);
     grid-template-rows: repeat(4, minmax(0, 1fr));
   }
-
-  .j,
-  .d {
+  /* 크기유지 */
+  .j {
     align-self: start;
   }
 
-  .table > :is(.e, .ge):nth-child(1) {
+  .table > :is(.e, .ge, .wo, .m, .mi, .n) {
+    padding: 4px;
+  }
+
+  .table > .e {
     grid-column: 1;
     grid-row: 3 / span 2;
   }
 
-  .table > :is(.e, .ge):nth-child(2) {
+  .table > .ge {
     grid-column: 1;
     grid-row: 1 / span 2;
   }
 
-  .table > :is(.wo, .m):nth-child(3) {
+  .table > .wo {
     grid-column: 2;
     grid-row: 1;
   }
 
-  .table > :is(.wo, .m):nth-child(4) {
+  .table > .m {
     grid-column: 2;
     grid-row: 3;
   }
-
-  .table > :is(.e, .ge, .wo, .m) {
-    padding: var(--space-1);
-  }
+  /* 크기 정열 */
 
   .table > :is(.e, .ge) {
     justify-content: center;
   }
 
-  :is(.box1, .box2):nth-child(5),
-  :is(.box1, .box2):nth-child(6) {
-    align-content: center;
-    gap: var(--space-1);
-    padding: var(--space-1);
-  }
-
-  :is(.box1, .box2):nth-child(5) {
+  .table > .mi {
     grid-column: 2;
     grid-row: 2;
   }
 
-  :is(.box1, .box2):nth-child(6) {
+  .table > .n {
     grid-column: 2;
     grid-row: 4;
   }
