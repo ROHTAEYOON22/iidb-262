@@ -57,14 +57,19 @@ body {
 }
 
 /* 위치와 배치 */
+main {
+  display: grid;
+  min-height: 100vh;
+  place-items: center stretch;
+}
+
 .p {
   position: relative;
   isolation: isolate;
   display: grid;
   align-content: start;
-  width: 100%;
-  min-height: 100vh;
-  padding: var(--outer-gap);
+  min-height: 0;
+  margin: var(--outer-gap);
   grid-template-areas:
     "header"
     "title"
@@ -120,7 +125,7 @@ body {
 .k {
   grid-area: title;
   margin-top: 2vw;
-  font-size: min(12vw, 173px);
+  font-size: clamp(0px, 12vw, 173px);
   font-weight: 800;
   text-align: center;
   white-space: nowrap;
@@ -300,7 +305,6 @@ body {
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     column-gap: 2vw;
     grid-template-rows: 39vw auto auto auto auto;
-    min-height: 0;
   }
 
   .p1 {
@@ -322,7 +326,7 @@ body {
 
   /* 크기와 글자 */
   .bbox {
-    width: 40%;
+    width: 50%;
   }
 
   .g {
@@ -335,9 +339,9 @@ body {
 }
 
 /* =========================
-   데스크톱: 855px 이상
+   데스크톱: 1050px 이상
 ========================= */
-@media (min-width: 855px) {
+@media (min-width: 1050px) {
   /* 색상: 공통 색상 유지 */
 
   /* 위치와 배치 */
@@ -345,7 +349,6 @@ body {
     grid-template-areas: none;
     grid-template-columns: repeat(20, minmax(0, 1fr));
     grid-template-rows: repeat(20, minmax(0, 1fr));
-    overflow: hidden;
   }
 
   .p1 {
@@ -447,5 +450,7 @@ body {
   /* 크기와 글자 */
   .p {
     height: 900px;
+    margin: 0px 120px;
+    transform: rotate(-5deg);
   }
 }
