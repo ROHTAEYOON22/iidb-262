@@ -234,7 +234,6 @@ body {
 
   /* 위치와 배치 */
   .p {
-    grid-template-areas: none;
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     column-gap: 2vw;
   }
