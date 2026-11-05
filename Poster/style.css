@@ -146,7 +146,7 @@ body {
 }
 
 .bbox {
-  position: absolute;
+  position: absolute; /* 주요 */
   top: 0;
   right: 0;
   bottom: 0;
