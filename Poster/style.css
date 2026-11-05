@@ -129,9 +129,9 @@ body {
 
 .p1 {
   position: relative; /* 주요 */
-  display: grid;
   grid-column: 1;
   grid-row: 1;
+  display: grid;
   grid-template-columns: 56px 38% minmax(0, 1fr);
   align-items: end;
 }
