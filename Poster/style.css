@@ -18,7 +18,12 @@
 
 /* 페이지 기본 */
 body {
+  display: grid;
+  min-height: 100vh;
+  align-items: center;
+  justify-items: stretch;
   margin: 0;
+  min-width: 300px;
   background: var(--yellow);
   color: var(--ink);
   font-family: "Pretendard", Arial, sans-serif;
@@ -65,11 +70,11 @@ body {
 }
 
 .a {
-  font-size: clamp(0px, 4.44vw, 64.01px); /* 주요 */
+  font-size: clamp(0px, 4.5vw, 65.625px); /* 주요 너비 1458px에서 */
 }
 
 .jo {
-  font-size: clamp(0px, 3vw, 43.25px);
+  font-size: clamp(0px, 3vw, 43.75px);
 }
 
 .g {
@@ -79,7 +84,7 @@ body {
 }
 
 .k {
-  font-size: clamp(0px, 12vw, 173px);
+  font-size: clamp(0px, 12vw, 175px); /* 주요 너비 1458px에서 */
   font-weight: 800;
   text-align: center;
   white-space: nowrap;
@@ -125,12 +130,6 @@ body {
 }
 
 /* 위치와 배치 */
-main {
-  display: grid;
-  min-height: 100vh; /* 주요 */
-  align-items: center;
-  justify-items: stretch;
-}
 .p {
   position: relative;
   display: grid;
