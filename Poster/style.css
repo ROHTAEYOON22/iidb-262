@@ -133,7 +133,6 @@ body {
   grid-row: 1;
   display: grid;
   grid-template-columns: 56px 38% minmax(0, 1fr);
-  align-items: end;
 }
 /* p1안쪽 */
 .r1 {
@@ -292,6 +291,10 @@ body {
     grid-column: 1 / -1;
     grid-row: 1 / span 8;
     grid-template-columns: 56px 270px minmax(0, 1fr);
+  }
+
+  .p1 > .i {
+    height: 100%;
   }
 
   .k {
