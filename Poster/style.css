@@ -174,13 +174,13 @@ body {
 .k {
   grid-column: 1;
   grid-row: 2;
-  margin-top: 2vw;
+  margin-top: 2vw; /* 주요 */
 }
 
 .j {
   grid-column: 1;
   grid-row: 3;
-  margin-top: 2vw;
+  margin-top: 2vw; /* 주요 */
   padding-block: 12px;
 }
 
@@ -201,10 +201,40 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.table > .e {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.table > .ge {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.table > .wo {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.table > .m {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.table > .mi {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.table > .n {
+  grid-column: 2;
+  grid-row: 3;
+}
+
 .anniversary,
 .d,
 .table {
-  margin-top: 20px;
+  margin-top: 20px; /* 주요 */
 }
 
 .table > div {
@@ -273,7 +303,7 @@ body {
   }
 
   .bbox {
-    width: 50%;
+    width: 50%; /* 주요 */
   }
 }
 
@@ -288,8 +318,8 @@ body {
   }
 
   .p1 {
-    grid-column: 1 / -1;
-    grid-row: 1 / span 8;
+    grid-column: 1 / -1; /* 주요 */
+    grid-row: 1 / span 8; /* 주요 */
     grid-template-columns: 56px 270px minmax(0, 1fr);
   }
 
@@ -313,19 +343,20 @@ body {
     align-self: start;
   }
 
+  .d {
+    grid-column: 1 / span 8;
+    grid-row: 13 / span 2;
+    align-self: start;
+    margin: 0;
+    padding: 0;
+  }
+
   .anniversary {
     grid-column: 10 / span 4;
     grid-row: 16 / span 4;
     align-self: center;
     margin: 0;
     transform: translateY(-12px); /* 높이 보정용 */
-  }
-
-  .d {
-    grid-column: 1 / span 8;
-    grid-row: 13 / span 2;
-    margin: 0;
-    padding: 0;
   }
 
   .table {
